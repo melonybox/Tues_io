@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TuesIo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <ul>
+  <% if !!@logged_in_user %>
+    <li><%= link_to "Log out", log_out_path, method: :delete %></li>
+    <li><%= link_to "Home Page", user_path(@logged_in_user) %></li>
+    <hr>
+  <% end %>
+  </ul>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

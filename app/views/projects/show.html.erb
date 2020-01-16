@@ -1,0 +1,18 @@
+<h1> Welcome to <%=@project.title %>! </h1>
+<h3> Synopsis: <%= @project.synopsis %> </h3>
+<h5> Deadline: <%= @project.deadline %> </h5>
+
+<ul>
+<% if @project.tasks.empty? %>
+  <%= "No current Tasks for Project"%>
+  <% else %>
+    <% @project.tasks.each do |task| %>
+    <li>
+    <%= task.description %> <%= task.user.username %> <%# task.complete %>
+    <%= link_to "EDIT", edit_task_path(task.id) %>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+
+<%= link_to "Create Task", new_task_path %>

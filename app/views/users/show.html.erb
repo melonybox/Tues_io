@@ -1,0 +1,8 @@
+<h1> Welcome <%=@logged_in_user.username%>! </h1>
+
+
+<ul>
+  <li><%= link_to "Create Project", new_project_path %></li>
+  <li><%= link_to "Current Project(s)", projects_path %></li>
+  <li><%= link_to "Current Task(s)",  tasks_path %></li>
+</ul>

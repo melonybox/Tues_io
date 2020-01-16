@@ -1,0 +1,12 @@
+<h1>Create Task</h1>
+
+
+<%=form_for(@task) do |f|%>
+<%= f.hidden_field :complete, :value => false %>
+<%= f.hidden_field :project_id, :value => @previous_url %>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<%= f.collection_select(:user_id, User.all, :id, :username)%>
+<%# f.collection_select(:project_id, @logged_in_user.project_id , :id, :title)%>
+<%= f.submit %>
+<% end %>

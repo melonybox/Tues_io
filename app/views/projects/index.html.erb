@@ -1,0 +1,7 @@
+<h1>WELCOME TO YOU PROJECTS PAGE</h1>
+
+<ul>
+<% @logged_in_user.projects_created.each do |project| %>
+    <li><%= link_to project.title, project %></li>
+<% end %>
+</ul>

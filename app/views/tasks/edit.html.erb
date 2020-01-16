@@ -1,0 +1,13 @@
+<h1>Edit this Task! </h1>
+
+
+<%=form_for(@task) do |f|%>
+<%= f.hidden_field :complete, :value => @task.complete %>
+<%= f.hidden_field :project_id, :value => @task.project_id %>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<%= f.collection_select(:user_id, User.all, :id, :username)%>
+<%= f.submit %>
+<% end %>
+
+<%= button_to "Remove Task", task_path(@task), method: :delete %>
